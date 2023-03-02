@@ -8,12 +8,15 @@ async function get() {
         })
         .then(data => {
             data.forEach(el => {
+
                 const prt =
-                    `<a href="./product.html?_id=${el._id}">
-                     
-                     <p class="productDescription">${el.description}</p>
-                     <p class="productName">${el.name}</p>
-                     </a>`
+                    `
+                   <a href="./product.html?_id=${el._id}">
+                <article>
+                    <img src = "${el.imageUrl}" alt = "Lorem ipsum dolor sit amet, Kanap name1" >
+                    <h3 class = "productName" > ${el.name} </h3> 
+                    <p class = "productDescription" > ${el.description} </p> 
+                    </article> </a> `
                 ctn.insertAdjacentHTML("beforeend", prt)
             })
         })
