@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //Initialisation du local storage
 let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
 console.table(produitLocalStorage);
@@ -92,3 +93,17 @@ for (let produit in produitLocalStorage){
 }}
 getCart();
 
+=======
+async function Ajouter() {
+    const ctn = document.querySelector('#items')
+
+
+    fetch("http://localhost:3000/api/products")
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+
+            }
+            Ajouter()
+>>>>>>> 30e547b7b011598656287d1d682b10a3b6fa9913
