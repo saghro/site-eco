@@ -118,5 +118,31 @@ function getTotals() {
     let productTotalPrice = document.getElementById('totalPrice');
     productTotalPrice.innerHTML = totalPrice;
     console.log(totalPrice);
+
 }
 getTotals();
+// Modification d'une quantité de produit
+function modifyQtt() {
+    let qttModif = document.querySelectorAll(".itemQuantity");
+
+    for (let k = 0; k < qttModif.length; k++) {
+        qttModif[k].addEventListener("change", (event) => {
+            event.preventDefault();
+
+            //Selection de l'element à modifier en fonction de son id ET sa couleur
+            let quantityModif = produitLocalStorage[k].quantiteProduit;
+            let qttModifValue = qttModif[k].valueAsNumber;
+
+            const resultFind = produitLocalStorage.find((el) => el.qttModifValue !== quantityModif);
+
+            resultFind.quantiteProduit = qttModifValue;
+            produitLocalStorage[k].quantiteProduit = resultFind.quantiteProduit;
+
+            localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
+
+            // refresh rapide
+            location.reload();
+        })
+    }
+}
+modifyQtt();
